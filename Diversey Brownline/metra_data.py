@@ -1,8 +1,7 @@
 import requests
-import os
 
 parameters = {
-    "key": "Request API key here: https://www.transitchicago.com/developers/traintrackerapply/",
+    "key": "5f44df69e6dc4e4fabef1caff7e35cf2",
     "mapid": 40530,
     "outputType": "JSON",
     "rt": "brn"
