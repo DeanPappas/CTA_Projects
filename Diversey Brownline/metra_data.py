@@ -1,7 +1,7 @@
 import requests
 
 parameters = {
-    "key": "5f44df69e6dc4e4fabef1caff7e35cf2",
+    "key": "https://www.transitchicago.com/developers/traintracker/ TO REQUEST API KEY",
     "mapid": 40530,
     "outputType": "JSON",
     "rt": "brn"
