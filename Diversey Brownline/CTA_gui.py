@@ -1,14 +1,14 @@
 from tkinter import *
 from tkinter.ttk import Combobox
 
-class MetraGUI:
-    def __init__(self, metra_times):
-        self.metra_data = metra_times
+class CTA_GUI:
+    def __init__(self, CTA_times):
+        self.CTA_data = CTA_times
 
         # Init window
         self.window = Tk()
         self.window.title("Diversey Tracker")
-        self.window.iconbitmap("images/metra.ico")
+        self.window.iconbitmap("images/CTA.ico")
         # Images
         eva_img = PhotoImage(file="images/eva_line.png")
         diversey_img = PhotoImage(file="images/diversey.png")
@@ -30,7 +30,6 @@ class MetraGUI:
         self.kimball_stops.grid(row=1, column=1, padx=20, pady=20)
         self.loop_stops = Combobox(self.window, values=[])
         self.loop_stops.configure(font=("Arial", 20))
-        # self.loop_stops.set(self.metra_data.loop_stops[0])
         self.loop_stops.grid(row=2, column=1,padx=20, pady=20)
         self.init_comboboxes()
         self.window.mainloop()
@@ -38,21 +37,21 @@ class MetraGUI:
     def init_comboboxes(self):
         # Test for case where no kimball times are pulled from API
         try:
-            self.kimball_stops.configure(values=self.metra_data.kimball_stops)
-            self.kimball_stops.set(self.metra_data.kimball_stops[0])
+            self.kimball_stops.configure(values=self.CTA_data.kimball_stops)
+            self.kimball_stops.set(self.CTA_data.kimball_stops[0])
         except IndexError:
             self.kimball_stops.configure(values=["No stops found"])
             self.kimball_stops.current(0)
         # Test for case where no loop times are pulled from API
         try:
-            self.loop_stops.configure(values=self.metra_data.loop_stops)
-            self.loop_stops.set(self.metra_data.loop_stops[0])
+            self.loop_stops.configure(values=self.CTA_data.loop_stops)
+            self.loop_stops.set(self.CTA_data.loop_stops[0])
         except IndexError:
             self.loop_stops.configure(values=["No stops found"])
             self.loop_stops.current(0)
 
     def refresh_times(self):
-        self.metra_data.refresh_data()
+        self.CTA_data.refresh_data()
         self.init_comboboxes()
 
     def kimball_next_time(self):
